@@ -19,4 +19,15 @@ public class CalculadoraNota {
             throw new IllegalArgumentException(nomeAvaliacao + " deve estar entre 0 e " + notaMaxima);
         }
     }
+    public static final double FREQUENCIA_MINIMA = 75;
+
+    public String situacao(double notaFinal, double frequencia) {
+        if (frequencia < FREQUENCIA_MINIMA) {
+            return "REPROVADO POR FALTA";
+        }
+        if (notaFinal < NOTA_MINIMA_APROVACAO) {
+            return "REPROVADO POR NOTA";
+        }
+        return "APROVADO";
+    }
 }
