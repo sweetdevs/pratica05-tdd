@@ -85,4 +85,33 @@ void deveSomarAsTresNotas() {
         CalculadoraNota calc = new CalculadoraNota();
         assertEquals("REPROVADO POR FALTA", calc.situacao(50, 60));
     }
+    @Test
+    void devePermitirAIPorA2MaisA3() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertTrue(calc.podeFazerAI(10, 20, 30, 80));
+    }
+
+    @Test
+    void devePermitirAIPorA1MaisA3NoLimite() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertTrue(calc.podeFazerAI(10, 5, 30, 80));
+    }
+
+    @Test
+    void naoDevePermitirAISeJaAprovado() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertFalse(calc.podeFazerAI(25, 25, 30, 80));
+    }
+
+    @Test
+    void naoDevePermitirAISeFrequenciaBaixa() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertFalse(calc.podeFazerAI(10, 20, 30, 70));
+    }
+
+    @Test
+    void naoDevePermitirAISeSomasInsuficientes() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertFalse(calc.podeFazerAI(5, 5, 30, 80));
+    }
 }
