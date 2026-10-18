@@ -5,6 +5,6 @@ public class CalculadoraNota {
         return a1 + a2 + a3;
     }
     public boolean estaAprovadoPorNota(double notaFinal) {
-        return false;
+        return notaFinal >= 70;
     }
 }
